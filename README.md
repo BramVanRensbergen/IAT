@@ -8,12 +8,12 @@ Source: https://github.com/BramVanRensbergen/IAT
 
 <b>Based on the IAT by Winter Mason</b><br>
 Source: https://github.com/winteram/IAT<br>
-Authors:
+Authors of this original version:
 <ul><li>Winter Mason (m@winteram.com)</li>
 <li>Steven Allon</li> 
 <li>Pinar Ozturk</li>
 </ul>
-
+<br>
 <b>About</b><br>
 This is a modified version of the open-source, web-based IAT by Winter Mason. The most important change is the addition of a word association task, prior to the IAT.
 
