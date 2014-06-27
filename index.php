@@ -1,12 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Online IAT</title>	
+<meta charset="UTF-8">
+<title>Experiment</title>	
 <link type="text/css" href="core/css/overcast/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
 <style type="text/css"> @import "core/css/iat.css";</style>	
 <script type="text/javascript" src="core/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="core/js/jquery-ui-1.8.18.custom.min.js"></script>
 <script type="text/javascript" src="core/js/IAT.js"></script>
+<script type="text/javascript" src="core/js/associations.js"></script>
 <script type="text/javascript">
 	initialize();
 </script>
@@ -14,7 +16,7 @@
 
 <body>
     
-<div id="instructions">
+<div id="container">
     Javascript must be enabled for the application to run.<br><br>
     Please enable javascript to continue.<br><br>
 </div>
