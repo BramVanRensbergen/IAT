@@ -5,12 +5,13 @@ Author of this version: Bram Van Rensbergen (mail@bramvanrensbergen.com)
 
 Source: https://github.com/BramVanRensbergen/IAT
 
-Authors of IAT this is based on:
-      *Winter Mason (m@winteram.com)
-      *Steven Allon 
-      *Pinar Ozturk
-Source: https://github.com/winteram/IAT
 
+Authors of IAT this is based on:
+*Winter Mason (m@winteram.com)
+*Steven Allon 
+*Pinar Ozturk
+
+Source: https://github.com/winteram/IAT
 
 
 This is a modified version of the open-source, web-based IAT by Winter Mason. The most important change is the addition of a word association task, prior to the IAT.
