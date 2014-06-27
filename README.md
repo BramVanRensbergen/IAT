@@ -23,10 +23,10 @@ This version was made for personal use, but anyone can use or modify it.
 
 Major differences between this version, and the original:
 * Added a word association task, which asks participants for three associations to a number of words. 
-   -Configuration in /core/js/associations.js
-   -You will need to add the cues for this task in this file manually.
-   -You can turn off the module in /core/js/iat.js, though if you are not interested in the association task, you will probably be better off with the original IAT by Mason.
-   -No GUI is provided to configure this module (nor will there be one)
+   -Configuration in /core/js/associations.js<br>
+   -You will need to add the cues for this task in this file manually.<br>
+   -You can turn off the module in /core/js/iat.js, though if you are not interested in the association task, you will probably be better off with the original IAT by Mason.<br>
+   -No GUI is provided to configure this module (nor will there be one)<br>
 * Translated all instructions to Dutch
 * Asked for some additional participant information
 * Some layout changes to the instructions
