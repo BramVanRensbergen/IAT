@@ -1,4 +1,4 @@
-***************************************************************
+***************************************************************************
 * project: Open Source, Web-based IAT + Word Association Task
 * Author of this version: Bram Van Rensbergen (mail@bramvanrensbergen.com) 
 * Source: https://github.com/BramVanRensbergen/IAT
@@ -8,7 +8,7 @@
 *      Steven Allon 
 *      Pinar Ozturk
 *      source: https://github.com/winteram/IAT
-***************************************************************
+****************************************************************************
 
 This is a modified version of the open-source, web-based IAT by Winter Mason. The most important change is the addition of a word association task, prior to the IAT.
 
