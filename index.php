@@ -17,8 +17,12 @@
 <body>
     
 <div id="container">
-    Javascript must be enabled for the application to run.<br><br>
-    Please enable javascript to continue.<br><br>
+    
 </div>
+<noscript>
+Javascript must be enabled for the application to run.<br><br>
+    Please enable javascript to continue.<br><br>
+</noscript>
+
 
 </body>
