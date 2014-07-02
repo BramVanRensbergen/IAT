@@ -1,18 +1,13 @@
-<div id = "experiment">
-	<div id="cue" class="text-center"></div>
-	<form id = "responseForm">
-		<div style="display:inline-block; min-width: 234px;"> 
-			<div id="responseBlock">
-				<div class="response" id="asso1label">...</div>
-				<div class="response" id="asso2label">...</div>
-				<div class="response" id="asso3label">...</div>
-				<div id="errorMessage">&nbsp;</div>		
-					<div class="form-group">
-					    <input type="text" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" 
-					      placeholder="Geef een eerste associatie" class="form-control" name="assoResponse" id="assoResponse">
-					</div>
-					<button id="submitAssoButton" type="submit">OK</button>
-			</div>
+<div id = "associations">
+	<div id="associations__cue"></div>
+	<form>
+		<div class="associations__previous" id="associations__previous--1">...</div>
+		<div class="associations__previous" id="associations__previous--2">...</div>
+		<div class="associations__previous">...</div>
+		<div class="associations__error">&nbsp;</div>		
+		<div>
+		      <input id="associations__response" type="text" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" placeholder="Geef een eerste associatie">
 		</div>
+		<button id="associations__submit" type="submit">OK</button>
 	</form>
 </div>
