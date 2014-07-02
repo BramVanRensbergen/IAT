@@ -65,7 +65,7 @@ function validateSsInfo() {
 	if (age.length < 2 || typeof gender === 'undefined' || education.length < 1) {	    //problem with some of the info
 		alert("Gelieve alle informatie in te vullen voor je verder gaat!"); //display error
 	} else {		
-		sub = age + "_" + gender + "_" + "_" + education + "_" + randomString(10); //create ID
+		sub = age + "_" + gender + "_" + education + "_" + randomString(10); //create ID
 		
 		if (SHOW_ASSOCIATION_TASK) {
 			showAssoInstructions(); //show instructions to the association task
