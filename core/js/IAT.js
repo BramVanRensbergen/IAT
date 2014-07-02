@@ -1,9 +1,9 @@
 /**
  * Original source: by Winter Mason, see https://github.com/winteram/IAT
  * Modified by Bram Van Rensbergen, see https://github.com/BramVanRensbergen/IAT
- * See ../README for a high-level overview of the general changes to this project
+ * See ../README for a high-level overview of the general changes to this project.
  * Modifications in this file: most content before 'startIAT' function have been rewritten.
- * The rest is mostly style changes, to make the code follow best practices (http://javascript.crockford.com/code.html) 
+ * The rest is mostly some style changes.) 
  */
 
 template = {};
@@ -29,7 +29,7 @@ function initialize() {
 			template = data;
 			$.get("core/instruct_participant_info.html", function(data) {
 				if (DEBUGGING) { //start the task, use testing ss info
-					sub = "bram_debug_"+ randomString(4);
+					sub = randomString(10);
 					showAssociationTask();
 				} else { //ask for ss info
 					showSsInfo(data);
@@ -45,10 +45,8 @@ function initialize() {
  */
 function showSsInfo(data) {
 	$("#container").html(data);
-	$("#subID").focus();	//focus input box for ss's name
-	$("#subID").select();
-	
-	jQuery('#ppInfoForm').bind('submit',function(e) {		
+
+	jQuery('#sub-info-form').bind('submit',function(e) {		
 		if(e) e.preventDefault();
 		validateSsInfo(); //ss clicked ok -> validate their responses, if ok, move on to instructions
 	});
@@ -60,30 +58,14 @@ function showSsInfo(data) {
  * If false, show an error, stay on this page.
  */
 function validateSsInfo() {
-	var valid = true;			
+	var age = $("#age").val();
+	var gender = $('input[name=gender]:checked', '#sub-info-form').val();
+	var education = $("#education").val();
 	
-	var name = document.getElementById("subID").value;
-	if (name.length <= 2) { 
-		valid = false; //no name entered, or too short
-	}
-
-	var age = document.getElementById("age").value;
-	if (age.length <= 1) { 
-		valid = false; //no age entered, or number smaller than 10
-	}
-	
-	if ($('#female').is(':checked')) {
-		var gender = "F";
-	} else if ($('#male').is(':checked')) {
-		var gender = "M";
-	} else {
-		valid = false; //gender not checked
-	}
-
-	if (!valid) {	   //problem with some of the info
+	if (age.length < 2 || typeof gender === 'undefined' || education.length < 1) {	    //problem with some of the info
 		alert("Gelieve alle informatie in te vullen voor je verder gaat!"); //display error
 	} else {		
-		sub = name + "_" + age + "_" + gender + "_" + randomString(4); //create ID
+		sub = age + "_" + gender + "_" + "_" + education + "_" + randomString(10); //create ID
 		
 		if (SHOW_ASSOCIATION_TASK) {
 			showAssoInstructions(); //show instructions to the association task
@@ -124,7 +106,7 @@ function showIATInstructions() {
         } else if (template.catB.itemtype == "img") { $("#citemsB").html("Images of "+template.catB.label); 
         }
         
-        jQuery('#instruct_iat_btn').bind('click',function(e) {
+        jQuery('#instruct-iat-btn').bind('click',function(e) {
         	showIAT();
     	});
 	});
