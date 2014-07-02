@@ -40,6 +40,7 @@ function initializeAssociations() {
  * Display instructions to the task. If user clicks ok, move on to the task.
  */
 function showAssoInstructions() {
+	showLoadingImage();
 	$.get("core/instruct_association_task.html", function(data) {
 		$("#container").html(data);	//add association instructions to the screen
         
@@ -52,7 +53,8 @@ function showAssoInstructions() {
 /**
  * Show the association task.
  */
-function showAssociationTask() {
+function showAssociationTask() {	
+	showLoadingImage();
 	$.get("core/associations.html", function(data) {
 		$('#container').html(data); //add association layout to the screen
 		startAssociationTask();		//start the task!

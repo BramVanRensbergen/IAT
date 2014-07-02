@@ -18,8 +18,23 @@ function randomString(length) {
     return result;
 }
 
+/**
+ * Display a spinner while ajax call is running.
+ */
+function showLoadingImage() {
+	$('#container').html("<p id = \"loadImage\"><img src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH+GkNyZWF0ZWQgd2l0a" +
+			"CBhamF4bG9hZC5pbmZvACH5BAAKAAAAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdK" +
+			"a+dIAAAh+QQACgABACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkEAAoAAgAsAAAAABAAEAAAAzYIujI" +
+			"jK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkEAAoAAwAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRo" +
+			"Kw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkEAAoABAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQACgAFA" +
+			"CwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQACgAGACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFw" +
+			"lWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAAKAAcALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnls" +
+			"RkAAAOwAAAAAAAAAAAA==\"/></p>");
+};
+
 // Loads the input file and starts introduction
 function initialize() {	
+	showLoadingImage();
 	initializeAssociations(); //initialize stimuli for the association task
 	
 	// get active template & load data into global variable
@@ -76,6 +91,7 @@ function validateSsInfo() {
 }
 
 function showIATInstructions() {
+	showLoadingImage();
 	$.get("core/instruct_iat.html", function(data) {
 		$("#container").html(data);
 		
@@ -113,6 +129,7 @@ function showIATInstructions() {
 }
 
 function showIAT() {
+	showLoadingImage();
 	$.get("core/IAT.html", function(data) {
 		$('body').html(data);
 		document.onkeypress = keyHandler; 
