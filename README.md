@@ -26,11 +26,16 @@ Major differences between this version, and the original:
    -Configuration in /core/js/associations.js<br>
    -You will need to add the cues for this task in this file manually.<br>
    -You can turn off the module in /core/js/iat.js, though if you are not interested in the association task, you will probably be better off with the original IAT by Mason.<br>
-   -No GUI is provided to configure this module (nor will there be one)<br>
+   -No GUI is provided to configure this module (nor will is there one planned)<br>
 * Translated all instructions to Dutch
 * Asked for some additional participant information
 * Some layout changes to the instructions
 * Other minor changes
+
+Note: this version is ONLY tested with a regular, text-based IAT, with the output written to the server directly. 
+Other options (output to sql, integrating google forms, ...) will probably NOT work without modifying the relevant files yourself!
         
 If you use an IAT with images, you might have to alter the instructions. 
 Likewise, if you turn off the association task, you will need to modify the instructions (they are written under the assumption that participants completed a task prior to the IAT)
+
+License info: this fork follows the same license as Winter Mason's original IAT; in other words, contact him for more info.
