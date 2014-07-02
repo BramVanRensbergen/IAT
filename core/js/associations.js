@@ -43,7 +43,7 @@ function showAssoInstructions() {
 	$.get("core/instruct_association_task.html", function(data) {
 		$("#container").html(data);	//add association instructions to the screen
         
-        jQuery('#instruct_asso_btn').bind('click',function(e) {
+        jQuery('#instruct-asso-btn').bind('click',function(e) {
         	showAssociationTask();        	//ss clicked continue -> move on to the association task
     	});
 	});
@@ -56,8 +56,8 @@ function showAssociationTask() {
 	$.get("core/associations.html", function(data) {
 		$('#container').html(data); //add association layout to the screen
 		startAssociationTask();		//start the task!
-		$("#assoResponse").focus();	//focus response box
-    	$("#assoResponse").select();
+		$("#associations__response").focus();	//focus response box
+    	$("#associations__response").select();
 	});
 }
 
@@ -65,64 +65,87 @@ function showAssociationTask() {
  * Begin the association task. Runs until all cues have been given three associations by user.
  */
 function startAssociationTask() {
-	var cue = '';				//the cue the ss is giving associations to
-	var cue_cat = '';			//category of the cue, e.g. 'local name' or 'foreign name'
-	var trial_nb = 0;			//trial number; 1 .. number of cues (i.e., 3 associations to each cue are all the same trial)
-	var currentAssoNumber = 1;  //1, 2, or 3, depending on whether the association is the first, second, or third association to the current cue
+	var cue = '';		//the cue the ss is giving associations to
+	var cue_cat = '';	//category of the cue, e.g. 'local name' or 'foreign name'
+	var trial_nb = 0;	//trial number; 1 .. number of cues (i.e., 3 associations to each cue are all the same trial)
+	var asso_index = 1;	//1, 2, or 3, depending on whether the association is the first, second, or third association to the current cue
 	
-	jQuery('#submitAssoButton').bind('click',function(e) {		//triggered by 'enter' or clicking 'ok'
+	//for each association, we'll save RT to first keypress and RT to submit
+	//measured from when cue is displayed or when previous association was submitted, whichever is later
+	var RT_start = -1;					 
+	var RT_to_submit = -1;
+	var RT_to_keypress = -1;
+	var first_keypress_registered = false;
+	
+	jQuery('#associations__submit').bind('click',function(e) {	//triggered by 'enter' or clicking 'ok'
 		if(e) e.preventDefault();								//make sure we stay on this page
-		var association = document.getElementById("assoResponse").value;		
+		var association = $('#associations__response').val(); 		
 		if (association.length <= 1) { 							//ss did not fill in anything of use
-			$("#errorMessage").html("Gelieve een associatie in te vullen!");	//show error message
+			$("#associations__error").html("Gelieve een associatie in te vullen!");	//show error message
 		} else {
-			$("#errorMessage").html("&nbsp;"); 					//clear (any) error
-			document.getElementById('assoResponse').value = ""; //clear response box
+			$("#associations__error").html("&nbsp;"); 			//clear (any) error
+			$("#associations__response").val('');				//clear response box
 			processAssociation(association); 					//write away response, move on
 		}		
+	});
+	
+	$("#associations__response").keypress(function() {
+		if (!first_keypress_registered) {
+			first_keypress_registered = true;
+			RT_to_keypress = new Date().getTime() - RT_start;
+		}
 	});
 	
 	/**
 	 * Write away response, move on to next association or cue.
 	 */	
 	function processAssociation(association) {
-		
+		RT_to_submit = new Date().getTime() - RT_start;
+				
 		//start by saving the trial
 		association_responses.push({
 			cue: cue,
 			cue_cat: cue_cat,
 			trial_nb: trial_nb,
 			association: association,
-			asso_nb: currentAssoNumber
+			asso_nb: asso_index,
+			RT_to_keypress: RT_to_keypress,
+			RT_to_submit: RT_to_submit
 		});
-				
-		if (currentAssoNumber == 1) { //this was ss's first association
-			$("#asso1label").html(association); //display this association while ss thinks of further associations
-			$("#assoResponse").attr("placeholder", "Geef een tweede associatie");
-			currentAssoNumber++;
-		} else if (currentAssoNumber == 2) { 	//this was ss's second association
-			$("#asso2label").html(association); //display this association while ss thinks of further associations
-			$("#assoResponse").attr("placeholder", "Geef een laatste associatie");
-			currentAssoNumber++;
+		
+		//allow for RT measurement of next association
+		first_keypress_registered = false;
+		RT_start = new Date().getTime(); 
+		
+		//show next association, or next cue
+		if (asso_index == 1) { //this was ss's first association
+			$("#associations__previous--1").html(association); //display this association while ss thinks of further associations
+			$("#associations__response").attr("placeholder", "Geef een tweede associatie");		
+			asso_index++;
+		} else if (asso_index == 2) { 	//this was ss's second association
+			$("#associations__previous--2").html(association); //display this association while ss thinks of further associations
+			$("#associations__response").attr("placeholder", "Geef een laatste associatie");
+			asso_index++;
 		} else {
-			$("#assoResponse").attr("placeholder", "Geef een eerste associatie");
+			$("#associations__response").attr("placeholder", "Geef een eerste associatie");
 			showNextCue(); //pp gave three associations -> move to next cue
-		}
+		}				
 	}
 	
 	/**
 	 * Display the next cue
 	 */
 	function showNextCue() {
-		$(".response").html("...");		
+		$(".associations__previous").html("...");		
 		
 		if (cue_list.length > 0) {
 			var cue_entry = cue_list.shift();
 			cue = cue_entry[0];
 			cue_cat = cue_entry[1];
 			trial_nb++;
-			currentAssoNumber = 1;
-			$("#cue").html(capitalizeFirst(cue));			
+			asso_index = 1;
+			$("#associations__cue").html(capitalizeFirst(cue));		
+			RT_start = new Date().getTime(); //reset RT
 		} else {
 			WriteAssociationData();
 			showIATInstructions();
@@ -133,6 +156,7 @@ function startAssociationTask() {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 	
+	trial_nb = 0;
 	showNextCue();	
 }
 
@@ -141,11 +165,11 @@ function WriteAssociationData(){
 	var subject = sub;
 	subject = subject.length==0 ? "unknown" : subject;
 	subject = "ASSO-" + subject;
-	var str = "cue\tcue_cat\ttrial_nb\tasso\tasso_nb\n";	
+	var str = "cue\tcue_cat\ttrial_nb\tasso\tasso_nb\tRT_firstkey\tRT_submit\n";	
 	
 	for (var i = 0; i < association_responses.length; i++) {
 		var t = association_responses[i];
-		str = str + t.cue + "\t" + t.cue_cat + "\t" + t.trial_nb + "\t" + t.association + "\t" + t.asso_nb + "\n";		
+		str = str + t.cue + "\t" + t.cue_cat + "\t" + t.trial_nb + "\t" + t.association + "\t" + t.asso_nb + "\t" + t.RT_to_keypress + "\t" + t.RT_to_submit + "\n";		
 	}	
 
 	$.post("core/fileManager.php", { 'op':'writeoutput', 'template':template.name, 
