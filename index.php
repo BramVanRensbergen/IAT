@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Experiment</title>	
+<title>IAT</title>	
 <link type="text/css" href="core/css/overcast/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
 <style type="text/css"> @import "core/css/iat.css";</style>	
 <script type="text/javascript" src="core/js/jquery-1.7.1.min.js"></script>
