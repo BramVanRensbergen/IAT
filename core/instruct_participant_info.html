@@ -13,32 +13,35 @@
 	<p>Voor we verder gaan, zouden we je willen vragen wat algemene informatie in te vullen:</p>
 	
 	<form id = "sub-info-form">
-	<table>  
-        <tr>
+	<table>
+	   <tr>
+            <td><label class = "left-column">Naam</label></td>
+             <td><input type = "text" id= "name" placeholder = "(Niet verplicht)" value = ""/></td>
+       </tr><tr>
 	       <td><label class = "left-column">Leeftijd</label></td>
-	       <td><input type="text" id="age" value = ""/></td>
+	       <td><input type = "text" id = "age" value = ""/></td>
 	   </tr><tr>
 	       <td><label class = "left-column">Geslacht</label></td>
 	       <td>
-	           <label><input type="radio" name="gender" value="female">Vrouw</label>
-	           <label><input type="radio" name="gender" value="male">Man</label>
+	           <label><input type = "radio" name = "gender" value = "female">Vrouw</label>
+	           <label><input type = "radio" name = "gender" value = "male">Man</label>
 	       </td>
 	    </tr><tr>
     		<td><label class = "left-column">Opleiding</label></td>
     		<td>
-				<select id="education">
-					<option selected="selected" value="">Klik en kies één van deze opties...</option>
-					<option value="geen">Geen</option>
-					<option value="lager">Lager Onderwijs</option>
-					<option value="middelbaar">Middelbaar Onderwijs</option>
-					<option value="voortgezet">Voortgezet Onderwijs</option>
-					<option value="bachelor">Bachelor (Universiteit of Hogeschool)</option>
-					<option value="master">Master (Universiteit of Hogeschool)</option>
+				<select id = "education">
+					<option selected = "selected" value = "">Klik en kies één van deze opties...</option>
+					<option value = "geen">Geen</option>
+					<option value = "lager">Lager Onderwijs</option>
+					<option value = "middelbaar">Middelbaar Onderwijs</option>
+					<option value = "voortgezet">Voortgezet Onderwijs</option>
+					<option value = "bachelor">Bachelor (Universiteit of Hogeschool)</option>
+					<option value = "master">Master (Universiteit of Hogeschool)</option>
 				</select>
             </td>
         </tr>
-    
+       
 	   </table>
-	   <div class = "ok-btn-div"><button type="submit" class="ok-btn">Verder Gaan</button></div>
+	   <div class = "ok-btn-div"><button type = "submit" class = "ok-btn">Verder Gaan</button></div>
     </form>
 </div>
