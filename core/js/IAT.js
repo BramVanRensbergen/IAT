@@ -14,7 +14,9 @@ SHOW_ASSOCIATION_TASK = true; //true: show assocation task before IAT
 function randomString(length) {
 	var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var result = '';
-    for (var i = length; i > 0; --i) result += chars.charAt(Math.floor(Math.random() * (chars.length - 1)));
+    for (var i = length; i > 0; --i) {
+    	result += chars.charAt(Math.floor(Math.random() * (chars.length - 1)));
+    }
     return result;
 }
 
