@@ -1,14 +1,13 @@
 # Set the path to the IAT folder here (be sure to include trailing slash)
-# on Linux (use a single forward slash):
-base.dir = "~/Documents/Research/IAT/"
+# on Linux (use a single forward slash): base.dir = "~/Documents/Research/IAT/"
 # on Windows (use double forward slashes):
-# base.dir = "C://Users//winteram//Documents//IAT//"
+base.dir = "C://Users//u0053989//Dropbox//apps//workspaces//web//xp//IAT-Associations//"
 
 # File delimiter = '/' for Unix/Max, '//' for Windows
-fd = '/'
+fd = '//'
 
 # Set the template you want to analyze here
-template.name = "Science"
+template.name = "racisme"
 output.dir = paste(base.dir,"templates",fd,template.name,fd,"output",fd,sep="")
 
 setwd(output.dir)
