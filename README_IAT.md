@@ -27,7 +27,6 @@ participants, the experimenter can direct their browser to the
 
 REQUIREMENTS:
 -------------
-
 Server-side: 
 * PHP (with permission to write files in directory)
 * (optional) MySQL with root access
@@ -37,19 +36,15 @@ Client-side: Javascript-enabled web browser
 
 USE:
 ----
-
-1) copy the folder to a publicly accessible folder on your web server
-2) from a shell prompt (i.e., Terminal in Mac or Linux, PuTTy in Windows) type 'sh setup.sh'
-3) create a new version of the IAT using the experimenter tool (Direct your
-   browser to [yourserver.com]/IAT/experimenter.php)
-4) [only necessary if IAT uses images] After creating the template, upload
-   the images to the folder "IAT/[template name]/img"
-5) Direct participants to your IAT! (e.g., [yourserver.com]/IAT)
+* copy the folder to a publicly accessible folder on your web server
+* from a shell prompt (i.e., Terminal in Mac or Linux, PuTTy in Windows) type 'sh setup.sh'
+* create a new version of the IAT using the experimenter tool (Direct your browser to [yourserver.com]/IAT/experimenter.php)
+* [only necessary if IAT uses images] After creating the template, upload the images to the folder "IAT/[template name]/img"
+* Direct participants to your IAT! (e.g., [yourserver.com]/IAT)
 
 
 OUTPUT:
 -------
-
 The output files are in the "output" folder within the template folder for the active IAT.  
 The columns are as follows:
 * Trial #
