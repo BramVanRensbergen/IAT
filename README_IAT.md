@@ -1,10 +1,12 @@
-**********************************************************
-* project: Open Source, Web-based IAT
-* authors: Winter Mason (m@winteram.com)
-* 	   Steven Allon 
-*	   Pinar Ozturk
-* source: https://github.com/winteram/IAT
-**********************************************************
+Readme to the original IAT by Winter Mason
+---------
+
+Project: Open Source, Web-based IAT
+authors: 
+* Winter Mason (m@winteram.com)
+* Steven Allon 
+* Pinar Ozturk
+source: https://github.com/winteram/IAT
 
 OVERVIEW:
 ---------
