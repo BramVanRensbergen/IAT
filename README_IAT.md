@@ -6,6 +6,7 @@ authors:
 * Winter Mason (m@winteram.com)
 * Steven Allon 
 * Pinar Ozturk
+
 source: https://github.com/winteram/IAT
 
 OVERVIEW:
@@ -27,8 +28,10 @@ participants, the experimenter can direct their browser to the
 REQUIREMENTS:
 -------------
 
-Server-side: PHP (with permission to write files in directory)
-	     (optional) MySQL with root access
+Server-side: 
+* PHP (with permission to write files in directory)
+* (optional) MySQL with root access
+
 Client-side: Javascript-enabled web browser
 
 
@@ -55,8 +58,13 @@ The output files are in the "output" folder within the template folder for the a
 The columns are as follows:
 
 Trial #
+
 Round #
+
 Category Label
+
 Category Index (which item within the category)
+
 Errors
+
 Reaction Time (in milliseconds)
